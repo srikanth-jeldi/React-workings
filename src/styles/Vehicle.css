@@ -1,0 +1,84 @@
+.vehicle__breadcrumbs {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.vehicle__breadcrumbs a {
+  color: #2563eb;
+}
+
+.vehicle__layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+
+.vehicle__media img {
+  border-radius: 20px;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+}
+
+.vehicle__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.vehicle__gallery img {
+  height: 90px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.vehicle__details h2 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
+  margin: 12px 0;
+}
+
+.vehicle__price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.vehicle__meta {
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.vehicle__highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.vehicle__highlights div {
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.vehicle__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.vehicle__service h3 {
+  margin-bottom: 10px;
+}
+
+.vehicle__service ul {
+  padding-left: 20px;
+  color: #475569;
+  display: grid;
+  gap: 8px;
+}
