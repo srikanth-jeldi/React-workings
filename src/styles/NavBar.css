@@ -1,11 +1,10 @@
 .navbar {
-  background: rgba(15, 23, 42, 0.88);
+  background: linear-gradient(120deg, #2f6bcf, #1f4e95);
   color: #f8fafc;
   padding: 18px 0;
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(14px);
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
 }
 
@@ -30,7 +29,7 @@
   border-radius: 16px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #f5d57d, #c2892f);
+  background: #f7e0a6;
   font-weight: 800;
   font-size: 1.05rem;
   color: #1e293b;
@@ -58,7 +57,7 @@
 
 .navbar__links a.active {
   color: #f8fafc;
-  border-bottom: 2px solid #f5d57d;
+  border-bottom: 2px solid #f7e0a6;
   padding-bottom: 4px;
 }
 

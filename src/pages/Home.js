@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
@@ -58,83 +58,149 @@ const brandLogos = [
   "Toyota"
 ];
 
-const Home = () => (
-  <main className="home">
-    <section className="hero">
-      <div className="hero__grid">
-        <div className="hero__search">
-          <div className="hero__badge">Find your right car</div>
-          <p>Showing best deals near Hyderabad</p>
-          <div className="hero__field">
-            <span>Car type</span>
-            <strong>SUV</strong>
-          </div>
-          <div className="hero__field">
-            <span>Model</span>
-            <strong>All models</strong>
-          </div>
-          <div className="hero__field">
-            <span>City</span>
-            <strong>Hyderabad</strong>
-          </div>
-          <div className="hero__field">
-            <span>Fuel</span>
-            <strong>Petrol, Diesel, EV</strong>
-          </div>
-          <div className="hero__price">
-            <div>
-              <span>Price</span>
-              <strong>₹3,00,000 - ₹15,00,000</strong>
-            </div>
-            <div className="hero__slider">
-              <span />
-              <span className="hero__slider-knob" />
-              <span className="hero__slider-knob" />
-            </div>
-          </div>
-          <div className="hero__buttons">
-            <button type="button" className="primary-button">
-              Search
-            </button>
-            <button type="button" className="secondary-button">
-              Reset
-            </button>
-          </div>
-        </div>
+const Home = () => {
+  const carTypes = useMemo(
+    () => ["SUV", "Sedan", "Hatchback", "Luxury", "Electric"],
+    []
+  );
+  const models = useMemo(
+    () => ["All models", "Creta", "Seltos", "City", "Nexon EV"],
+    []
+  );
+  const cities = useMemo(
+    () => ["Hyderabad", "Bengaluru", "Chennai", "Pune", "Delhi NCR"],
+    []
+  );
+  const fuels = useMemo(() => ["Petrol", "Diesel", "EV", "Hybrid"], []);
 
-        <div className="hero__content">
-          <span className="badge">carhub360 · epitomehub experience</span>
-          <h2>Find your perfect car in Hyderabad</h2>
-          <p>
-            Starts at <strong>₹13.66 LAKH</strong> with verified inspections,
-            discovery insights, and secure gateway services.
-          </p>
-          <div className="hero__cta">
-            <Link to="/inventory" className="primary-button">
-              View more
-            </Link>
-            <button type="button" className="secondary-button">
-              Talk to expert
-            </button>
+  const [filters, setFilters] = useState({
+    type: carTypes[0],
+    model: models[0],
+    city: cities[0],
+    fuel: fuels[0]
+  });
+
+  const summary = `${filters.type} · ${filters.model} · ${filters.city} · ${filters.fuel}`;
+
+  const handleChange = (key) => (event) => {
+    setFilters((prev) => ({ ...prev, [key]: event.target.value }));
+  };
+
+  const handleReset = () => {
+    setFilters({
+      type: carTypes[0],
+      model: models[0],
+      city: cities[0],
+      fuel: fuels[0]
+    });
+  };
+
+  return (
+    <main className="home">
+      <section className="hero">
+        <div className="hero__grid">
+          <div className="hero__search">
+            <div className="hero__badge">Find your right car</div>
+            <p>Showing best deals near {filters.city}</p>
+            <label className="hero__field">
+              <span>Car type</span>
+              <select value={filters.type} onChange={handleChange("type")}>
+                {carTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="hero__field">
+              <span>Model</span>
+              <select value={filters.model} onChange={handleChange("model")}>
+                {models.map((model) => (
+                  <option key={model} value={model}>
+                    {model}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="hero__field">
+              <span>City</span>
+              <select value={filters.city} onChange={handleChange("city")}>
+                {cities.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="hero__field">
+              <span>Fuel</span>
+              <select value={filters.fuel} onChange={handleChange("fuel")}>
+                {fuels.map((fuel) => (
+                  <option key={fuel} value={fuel}>
+                    {fuel}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="hero__price">
+              <div>
+                <span>Price</span>
+                <strong>₹3,00,000 - ₹15,00,000</strong>
+              </div>
+              <div className="hero__slider">
+                <span />
+                <span className="hero__slider-knob" />
+                <span className="hero__slider-knob" />
+              </div>
+            </div>
+            <div className="hero__buttons">
+              <Link to="/inventory" className="primary-button">
+                Search
+              </Link>
+              <button
+                type="button"
+                className="secondary-button"
+                onClick={handleReset}
+              >
+                Reset
+              </button>
+            </div>
+            <div className="hero__summary">{summary}</div>
           </div>
-          <div className="hero__card">
-            <div>
-              <h4>Verified Listings</h4>
-              <p>Only authenticated vehicles from trusted sellers.</p>
+
+          <div className="hero__content">
+            <span className="badge">carhub360 · epitomehub experience</span>
+            <h2>Find your perfect car in Hyderabad</h2>
+            <p>
+              Starts at <strong>₹13.66 LAKH</strong> with verified inspections,
+              discovery insights, and secure gateway services.
+            </p>
+            <div className="hero__cta">
+              <Link to="/inventory" className="primary-button">
+                View more
+              </Link>
+              <button type="button" className="secondary-button">
+                Talk to expert
+              </button>
             </div>
-            <div>
-              <h4>Secure Payments</h4>
-              <p>Gateway-protected transfers with full visibility.</p>
-            </div>
-            <div>
-              <h4>Trusted Sellers</h4>
-              <p>Ratings, history, and chat support included.</p>
+            <div className="hero__card">
+              <div>
+                <h4>Verified Listings</h4>
+                <p>Only authenticated vehicles from trusted sellers.</p>
+              </div>
+              <div>
+                <h4>Secure Payments</h4>
+                <p>Gateway-protected transfers with full visibility.</p>
+              </div>
+              <div>
+                <h4>Trusted Sellers</h4>
+                <p>Ratings, history, and chat support included.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="hero__image" />
-    </section>
+        <div className="hero__image" />
+      </section>
 
     <section className="main-section search-section">
       <div className="section-heading">
@@ -191,7 +257,8 @@ const Home = () => (
         ))}
       </div>
     </section>
-  </main>
-);
+    </main>
+  );
+};
 
 export default Home;
