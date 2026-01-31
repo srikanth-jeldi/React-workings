@@ -1,5 +1,7 @@
 .footer {
+
   background: #0b1730;
+
   color: #e2e8f0;
   padding: 64px 0 32px;
   margin-top: auto;
@@ -14,9 +16,11 @@
 }
 
 .footer__content h3 {
+
   font-size: 1.5rem;
   margin-bottom: 12px;
   color: #f8fafc;
+
 }
 
 .footer__content p {

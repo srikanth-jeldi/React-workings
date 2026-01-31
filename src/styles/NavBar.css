@@ -1,4 +1,5 @@
 .navbar {
+
   background: linear-gradient(120deg, #2f6bcf, #1f4e95);
   color: #f8fafc;
   padding: 18px 0;
@@ -6,6 +7,7 @@
   top: 0;
   z-index: 10;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
+
 }
 
 .navbar__content {
@@ -29,20 +31,26 @@
   border-radius: 16px;
   display: grid;
   place-items: center;
+
   background: #f7e0a6;
   font-weight: 800;
   font-size: 1.05rem;
   color: #1e293b;
+
 }
 
 .navbar__brand h1 {
   font-size: 1.3rem;
+
   text-transform: lowercase;
+
 }
 
 .navbar__brand p {
   font-size: 0.8rem;
+
   color: #cbd5f5;
+
 }
 
 .navbar__links {
@@ -52,18 +60,21 @@
 }
 
 .navbar__links a {
+
   color: #e2e8f0;
 }
 
 .navbar__links a.active {
   color: #f8fafc;
   border-bottom: 2px solid #f7e0a6;
+
   padding-bottom: 4px;
 }
 
 .navbar__actions {
   display: flex;
   gap: 12px;
+
   align-items: center;
 }
 
@@ -82,6 +93,8 @@
   background: rgba(226, 232, 240, 0.1);
   border-color: rgba(226, 232, 240, 0.3);
   color: #f8fafc;
+
+
 }
 
 @media (max-width: 1024px) {
@@ -91,11 +104,8 @@
   }
 
   .navbar__links {
-    flex-wrap: wrap;
-  }
+   
 
-  .navbar__actions {
-    width: 100%;
     flex-wrap: wrap;
   }
 }
@@ -103,5 +113,6 @@
 @media (max-width: 640px) {
   .navbar__greeting {
     width: 100%;
+
   }
 }

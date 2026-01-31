@@ -1,7 +1,9 @@
 :root {
   color-scheme: light;
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
   background-color: #dce8f8;
+
   color: #0f172a;
 }
 
@@ -12,7 +14,9 @@
 }
 
 body {
+
   background: #dce8f8;
+
 }
 
 a {

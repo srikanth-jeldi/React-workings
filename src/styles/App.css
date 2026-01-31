@@ -2,7 +2,9 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
   background: #dce8f8;
+ usedcars
 }
 
 .main-section {
@@ -28,8 +30,10 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   background: rgba(236, 218, 166, 0.6);
   color: #7b5a1b;
+
   padding: 6px 14px;
   border-radius: 999px;
   font-weight: 600;
@@ -37,16 +41,21 @@
 }
 
 .primary-button {
-  background: linear-gradient(120deg, #2f6bcf, #1b4fa3);
+
+  background: linear-gradient(120deg, #2563eb, #7c3aed);
+
   color: #fff;
   border: none;
   border-radius: 999px;
   padding: 12px 22px;
+
   font-weight: 700;
+
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   box-shadow: 0 16px 30px rgba(33, 84, 158, 0.35);
 }
 
@@ -54,6 +63,7 @@
   background: #fdf7ea;
   border: 1px solid #f2d9a1;
   color: #8a651c;
+
   border-radius: 999px;
   padding: 12px 20px;
   font-weight: 600;

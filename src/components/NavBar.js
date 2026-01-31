@@ -6,14 +6,17 @@ const NavBar = () => (
   <header className="navbar">
     <div className="navbar__content">
       <div className="navbar__brand">
+
         <span className="navbar__logo">CH</span>
         <div>
           <h1>carhub360</h1>
           <p>Epitome-grade used cars</p>
+ usedcars
         </div>
       </div>
       <nav className="navbar__links">
         <NavLink to="/" end>
+
           Explore
         </NavLink>
         <NavLink to="/inventory">Buy Cars</NavLink>
@@ -31,6 +34,21 @@ const NavBar = () => (
         </button>
         <button type="button" className="primary-button">
           Logout
+
+          Home
+        </NavLink>
+        <NavLink to="/inventory">Inventory</NavLink>
+        <NavLink to="/sell">Sell</NavLink>
+        <NavLink to="/financing">Financing</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </nav>
+      <div className="navbar__actions">
+        <button type="button" className="secondary-button">
+          Log in
+        </button>
+        <button type="button" className="primary-button">
+          Schedule test drive
+
         </button>
       </div>
     </div>
